@@ -1,3 +1,5 @@
+@import "~react-component-countdown-timer/lib/styles.css";
+
 .App {
   text-align: center;
 }
@@ -8,7 +10,7 @@
   pointer-events: none;
 }
 
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,8 +21,24 @@
   color: white;
 }
 
-.App-link {
+span.count {
+    background-color: transparent;
+}
+
+a {
   color: #61dafb;
+}
+
+div.top-right {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+div.top-left {
+    position: absolute;
+    left: 2px;
+    top: 2px;
 }
 
 @keyframes App-logo-spin {
