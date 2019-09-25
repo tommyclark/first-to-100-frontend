@@ -1,7 +1,7 @@
 export var team_one = "testing";
 
 export default {
-    BASE_URL: "http://first-to-100-game.herokuapp.com",
+    BASE_URL: "https://first-to-100-game.herokuapp.com",
     TEAM_ONE: {
         NAME: "Team One",
         SCORE: 0,
