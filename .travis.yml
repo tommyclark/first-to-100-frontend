@@ -7,3 +7,8 @@ cache:
 script:
   - npm test
   - npm run build
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: first-to-100-fe
+  on: master
