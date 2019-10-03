@@ -1,6 +1,5 @@
-export var team_one = "testing";
-
 export default {
+    CURRENT_TEAM: 0,
     BASE_URL: "https://first-to-100-game.herokuapp.com",
     TEAMS:
     [

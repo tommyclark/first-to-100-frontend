@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button,  Form } from 'react-bootstrap';
 import axios from 'axios';
 import * as Constants from '../constants'
+import ReactDOM from "react-dom";
 
 class Challenge extends Component {
 
@@ -18,8 +19,15 @@ class Challenge extends Component {
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        Constants.default.TEAMS[0].CHALLENGE = this.state.answer;
-        this.props.history.push("/answer")
+        Constants.default.TEAMS[Constants.default.CURRENT_TEAM].CHALLENGE = this.state.answer;
+
+        if (Constants.default.TEAMS.length - 1 <= Constants.default.CURRENT_TEAM) {
+            Constants.default.CURRENT_TEAM = 0;
+            this.props.history.push("/answer")
+        } else {
+            Constants.default.CURRENT_TEAM++;
+            ReactDOM.findDOMNode(this.challengeField).value = "";
+        }
     };
 
     myChangeHandler = (event) => {
@@ -31,9 +39,10 @@ class Challenge extends Component {
             <div className="App-body">
                 <Form onSubmit={this.mySubmitHandler}>
                     <Form.Group controlId="formEnterTeamName">
-                        <h1>{Constants.default.TEAMS[0].NAME}</h1>
+                        <h1>{Constants.default.TEAMS[Constants.default.CURRENT_TEAM].NAME}</h1>
                         <Form.Label>{window.question.question}</Form.Label>
-                        <Form.Control onChange={this.myChangeHandler} placeholder="How many could you name?" />
+                        <Form.Control ref={ form => this.challengeField = form }
+                                      onChange={this.myChangeHandler} placeholder="How many could you name?" />
                         <Form.Text className="text-muted">
                             Enter the number of answers you could name. Whoever has the most answers wins.
                         </Form.Text>

@@ -33,9 +33,9 @@ class Answer extends Component {
             answer: this.state.answer,
         })
         .then(response => {
-            Constants.default.TEAMS[0].SCORE++;
+            Constants.default.TEAMS[Constants.default.CURRENT_TEAM].SCORE++;
             this.forceUpdate();
-            if (Constants.default.TEAMS[0].SCORE >= Constants.default.TEAMS[0].CHALLENGE) {
+            if (Constants.default.TEAMS[Constants.default.CURRENT_TEAM].SCORE >= Constants.default.TEAMS[Constants.default.CURRENT_TEAM].CHALLENGE) {
                 this.props.history.push("/scores");
             }
         })
@@ -58,11 +58,11 @@ class Answer extends Component {
                     </Countdown>
                 </div>
                 <div className="top-right">
-                    Score: {Constants.default.TEAMS[0].SCORE} / {Constants.default.TEAMS[0].CHALLENGE}
+                    Score: {Constants.default.TEAMS[Constants.default.CURRENT_TEAM].SCORE} / {Constants.default.TEAMS[Constants.default.CURRENT_TEAM].CHALLENGE}
                 </div>
                 <Form onSubmit={this.mySubmitHandler}>
                     <Form.Group controlId="formEnterTeamName">
-                        <h1>A question for {Constants.default.TEAMS[0].NAME}</h1>
+                        <h1>A question for {Constants.default.TEAMS[Constants.default.CURRENT_TEAM].NAME}</h1>
                         <Form.Label>{window.question.question}</Form.Label>
                         <Form.Control ref={ form => this.answerField = form }
                                       onChange={this.myChangeHandler} placeholder="Enter your answer" />
