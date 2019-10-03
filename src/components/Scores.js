@@ -5,9 +5,9 @@ class Scores extends Component {
     render() {
         return (
             <div className="App-body">
-                <h2>{Constants.default.TEAM_ONE.NAME}</h2>
+                <h2>{Constants.default.TEAMS[0].NAME}</h2>
                 <p>
-                    You got {Constants.default.TEAM_ONE.SCORE} correct answers out of {Constants.default.TEAM_ONE.CHALLENGE}.
+                    You got {Constants.default.TEAMS[0].SCORE} correct answers out of {Constants.default.TEAMS[0].CHALLENGE}.
                 </p>
             </div>
         );

@@ -18,7 +18,7 @@ class Challenge extends Component {
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        Constants.default.TEAM_ONE.CHALLENGE = this.state.answer;
+        Constants.default.TEAMS[0].CHALLENGE = this.state.answer;
         this.props.history.push("/answer")
     };
 
@@ -31,7 +31,7 @@ class Challenge extends Component {
             <div className="App-body">
                 <Form onSubmit={this.mySubmitHandler}>
                     <Form.Group controlId="formEnterTeamName">
-                        <h1>{Constants.default.TEAM_ONE.NAME}</h1>
+                        <h1>{Constants.default.TEAMS[0].NAME}</h1>
                         <Form.Label>{window.question.question}</Form.Label>
                         <Form.Control onChange={this.myChangeHandler} placeholder="How many could you name?" />
                         <Form.Text className="text-muted">

@@ -11,7 +11,7 @@ class Team extends Component {
 
     mySubmitHandler = (event) => {
         event.preventDefault();
-        Constants.default.TEAM_ONE.NAME = this.state.teamName;
+        Constants.default.TEAMS[0].NAME = this.state.teamName;
         this.props.history.push("/challenge")
     };
 
