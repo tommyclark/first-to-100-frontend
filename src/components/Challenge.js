@@ -27,6 +27,7 @@ class Challenge extends Component {
         } else {
             Constants.default.CURRENT_TEAM++;
             ReactDOM.findDOMNode(this.challengeField).value = "";
+            this.forceUpdate()
         }
     };
 

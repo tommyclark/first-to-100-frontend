@@ -8,15 +8,23 @@ import Countdown, {zeroPad} from 'react-countdown-now';
 class Answer extends Component {
     constructor(props) {
         super(props);
-        this.state = { countdownRenderer: '' };
+
+        this.state = { countdownRenderer: '', timeLeft: '' };
 
         const Completionist = () => {
-            this.props.history.push("/scores");
+            if (Constants.default.TEAMS.length - 1 <= Constants.default.CURRENT_TEAM) {
+                Constants.default.CURRENT_TEAM = 0;
+                this.props.history.push("/scores");
+            } else {
+                Constants.default.CURRENT_TEAM++;
+                this.setState({timeLeft: Date.now() + 300000});
+            }
             return (
                 <div>Time up</div>
             );
         };
 
+        this.state.timeLeft = Date.now() + 300000;
         this.state.countdownRenderer = ({minutes, seconds, completed }) => {
             if (completed) {
                 return <Completionist />;
@@ -54,7 +62,7 @@ class Answer extends Component {
         return (
             <div className="App-body">
                 <div className="top-left">
-                    <Countdown date={Date.now() + 300000} renderer={this.state.countdownRenderer}>
+                    <Countdown key={this.state.timeLeft} date={this.state.timeLeft} renderer={this.state.countdownRenderer}>
                     </Countdown>
                 </div>
                 <div className="top-right">
