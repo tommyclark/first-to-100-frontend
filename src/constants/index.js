@@ -6,12 +6,14 @@ export default {
         {
             NAME: "Team One",
             SCORE: 0,
-            CHALLENGE: 1
+            CHALLENGE: 1,
+            TOTAL_SCORE: 0
         },
         {
             NAME: "Team Two",
             SCORE: 0,
-            CHALLENGE: 1
+            CHALLENGE: 1,
+            TOTAL_SCORE: 0
         }
     ],
 }
