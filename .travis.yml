@@ -11,6 +11,7 @@ deploy:
   provider: surge
   project: ./build/
   domain: first-to-100.surge.sh
+  skip_cleanup: true
   on:
     branch:
       master
