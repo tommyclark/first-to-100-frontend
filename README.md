@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/tommyclark/first-to-100-frontend.svg?branch=master)](https://travis-ci.com/tommyclark/first-to-100-frontend)
 
+![Screenshot](screenshot.png)
+
 This is the React front end for the 'First to 100' game. The `master` branch is
 continuously deployed to [Surge](https://first-to-100.surge.sh) by Travis CI.
 
