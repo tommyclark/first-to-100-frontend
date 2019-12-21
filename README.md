@@ -5,6 +5,9 @@
 This is the React front end for the 'First to 100' game. The `master` branch is
 continuously deployed to [Surge](https://first-to-100.surge.sh) by Travis CI.
 
+The back end of the game is [this Spring Boot application](https://github.com/tommyclark/first-to-100), 
+which is continuously deployed to Heroku. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
